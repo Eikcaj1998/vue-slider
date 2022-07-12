@@ -32,6 +32,7 @@ const root = new Vue ({
 
       data:{
         currentIndex:0,
+        timer: null,
          pictures: [
           {
             url: 'http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg',
@@ -76,9 +77,11 @@ const root = new Vue ({
         pictures.length - 1
         },
       },
+      mounted: function() {
+        this.startSlide();
+      },
      methods:{
           goToNext: function(){
-
               this.currentIndex++;
           },
 
@@ -86,6 +89,9 @@ const root = new Vue ({
 
               this.currentIndex--;
 
+          },
+          startSlide: function() {
+            this.timer = setInterval(this.goToNext, 3000);
           },
     }
 })
