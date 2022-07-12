@@ -34,14 +34,12 @@
                 <i v-if="!isLastCard" class="bi bi-arrow-right-square-fill"id="next" v-on:click="goToNext"></i>
             </div>
             <div id="thumbnail">
-                <img 
-                v-for="(pic, index) in pictures"
-                :src="pic.url" 
-                :alt="pic.title"
-                :class="{'active':currentIndex === index}"
-                @click="chooseImg(index)"
-                >   
-                </div>
+                    <img 
+                    v-for="(pic, index) in pictures"
+                    :src="pic.url" 
+                    :alt="pic.title"
+                    :class="{'active':currentIndex === index}"
+                    @click="chooseImage(index)">   
             </div>
         </div>
     </div>
