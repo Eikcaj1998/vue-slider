@@ -22,24 +22,26 @@
         <div class="row col-8 offset-2 position-relative">
             <div id="carousel">
                 <!-- bottom-left -->
-                <i v-show="!isFirstCard" class="bi bi-arrow-left-square-fill" id="prev" @click="goToPrev"></i>
+                <i class="bi bi-arrow-left-square-fill" id="prev" @click="goToPrev"></i>
                     <figure v-for="(pic, index) in pictures" :class="{'active' : currentIndex === index}">
-                        <img :src="pic.url" :alt="pic.title"/>
+                        <img :src="pic.url" :alt="pic.title" v-on:mouseenter="stopAutoplay" v-on:mouseleave="startAutoplay"/>
                         <figcaption>
                             <h2>{{pic.title}}</h2>
                             <h3>{{pic.description}}</h3>
                         </figcaption>
                     </figure>
                 <!-- bootom-right -->
-                <i v-if="!isLastCard" class="bi bi-arrow-right-square-fill"id="next" v-on:click="goToNext"></i>
+                <i  class="bi bi-arrow-right-square-fill"id="next" v-on:click="goToNext"></i>
             </div>
             <div id="thumbnail">
-                    <img 
-                    v-for="(pic, index) in pictures"
-                    :src="pic.url" 
-                    :alt="pic.title"
-                    :class="{'active':currentIndex === index}"
-                    @click="chooseImage(index)">   
+                <img 
+                v-for="(pic, index) in pictures"
+                :src="pic.url" 
+                :alt="pic.title"
+                :class="{'active':currentIndex === index}"
+                @click="chooseImg(index)"
+                >   
+                </div>
             </div>
         </div>
     </div>
